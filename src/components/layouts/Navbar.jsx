@@ -1,18 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import Container from "./Container";
 import Logo from "@/assets/Logo.png";
@@ -30,171 +18,144 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isSheetOpen, setSheetOpen] = useState(false);
-
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.1) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[hsl(var(--primary-blue))]/98 py-3 shadow-2xl"
-          : "bg-[hsl(var(--primary-blue))]/95 py-5"
-      } backdrop-blur-xl border-b border-accent/20`}
-    >
-      <Container className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex justify-between w-full items-center lg:hidden">
-          <Link to="/" className="mr-6 lg:hidden">
-            <img src={Logo} alt="Ecalls" className="h-8 w-auto" />
-          </Link>
+    // fixed bar that just centers the “pills”
+    <header className="fixed top-4 left-0 right-0 z-50 px-4">
+      <Container className="flex items-center justify-between gap-4">
+        {/* LEFT: logo pill */}
+        <Link
+          to="/"
+          className="
+            inline-flex items-center rounded-full
+            bg-white/5 border border-white/15
+            px-5 py-3 shadow-lg shadow-black/30
+            backdrop-blur-xl
+          "
+        >
+          <img src={Logo} alt="Exclusive Calls" className="h-8 w-auto" />
+        </Link>
 
-          <div>
-            <Button onClick={() => setContactDialogOpen(true)}>
-              Contact Us
-            </Button>
-          </div>
-
-          <Sheet
-            variant="temporary"
-            open={isSheetOpen}
-            onOpenChange={setSheetOpen}
-          >
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="lg:hidden">
-                <img src={Menu} alt="" className="h-6 w-6 p-1" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full h-full">
-              <SheetHeader>
-                <SheetTitle>
-                  <a href="/" className=" ">
-                    <img src={Logo} alt="" />
-                  </a>
-                </SheetTitle>
-              </SheetHeader>
-
-              <div className="mt-12 flex justify-center">
-                <ul className="space-y-2 w-full flex flex-col justify-center items-center">
-                  {navLinks.map((item, idx) =>
-                    item.subLinks ? (
-                      <li key={idx} className="relative">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              className="w-full text-muted-foreground border-none"
-                              variant="ghost"
-                            >
-                              {item.name}
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent className="w-56 bg-white shadow-lg rounded-md">
-                            {item.subLinks.map((subLink, subIdx) => (
-                              <DropdownMenuItem key={subIdx} asChild>
-                                <Link
-                                  to={subLink.path}
-                                  onClick={() => setSheetOpen(false)} // Close the Sheet
-                                  className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
-                                >
-                                  {subLink.name}
-                                </Link>
-                              </DropdownMenuItem>
-                            ))}
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </li>
-                    ) : (
-                      <li key={idx}>
-                        <Button
-                          className={`w-full text-muted-foreground ${
-                            location.pathname === item.path
-                              ? "font-bold text-main"
-                              : ""
-                          }`}
-                          variant="ghost"
-                          onClick={() => {
-                            setSheetOpen(false); // Close the Sheet
-                            window.location.href = item.path;
-                          }}
-                        >
-                          {item.name}
-                        </Button>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-
-        <div className="justify-between items-center w-full hidden lg:flex">
-          <Link to="/" className="mr-6 hidden lg:flex">
-            <img src={Logo} alt="Exclusive Calls" className="h-8 w-auto" />
-          </Link>
-
-          <nav className="hidden lg:flex gap-4">
-            {navLinks.map((link) =>
-              link.subLinks ? (
-                <div key={link.name} className="relative group">
-                  <Link
-                    to={link.path}
-                    className={`inline-block px-4 py-6 text-sm font-medium cursor-pointer ${
-                      location.pathname.includes("services")
-                        ? "text-main font-bold border-b-2 border-black"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                  <ul className="absolute hidden group-hover:block bg-white px-2 shadow-lg py-4 rounded-md w-64">
-                    {link.subLinks.map((subLink) => (
-                      <li key={subLink.name}>
-                        <Link
-                          to={subLink.path}
-                          className="block px-4 py-3 text-sm hover:bg-gray-100 hover:text-main rounded-2xl"
-                        >
-                          {subLink.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
+        {/* RIGHT: nav pill */}
+        <div
+          className={`
+            flex items-center justify-between gap-3
+            rounded-full border border-white/15
+            px-3 py-1
+            backdrop-blur-xl
+            transition-all duration-300
+            ${scrolled ? "bg-slate-900/70 shadow-lg shadow-black/40" : "bg-slate-900/60"}
+          `}
+        >
+          {/* Desktop nav links */}
+          <nav className="hidden md:flex items-center gap-2 lg:gap-4 px-2">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`inline-block w-max px-4 py-6 text-sm font-medium ${
-                    location.pathname === link.path
-                      ? "text-main font-bold border-b-2 border-black"
-                      : "text-muted-foreground"
-                  }`}
+                  className={`
+                    relative text-sm font-medium px-3 py-2
+                    transition-colors duration-200
+                    ${isActive ? "text-white" : "text-slate-200/80 hover:text-white"}
+                  `}
                 >
                   {link.name}
+                  {isActive && (
+                    <span className="absolute left-3 right-3 -bottom-1 h-[2px] rounded-full bg-[hsl(var(--accent-orange))]" />
+                  )}
                 </Link>
-              )
-            )}
+              );
+            })}
           </nav>
 
-          <div>
-            <Button onClick={() => setContactDialogOpen(true)}>
-              Contact Us
+          {/* Desktop CTA */}
+          <Button
+            className="
+              hidden md:inline-flex
+              rounded-full px-5 py-2 text-sm font-semibold
+              bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+              text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              hover:brightness-110
+            "
+            onClick={() => {
+              // hook up your dialog / routing here
+            }}
+          >
+            Get Started Now
+          </Button>
+
+          {/* Mobile: CTA + menu icon */}
+          <div className="flex items-center gap-2 md:hidden">
+            <Button
+              className="
+                rounded-full px-4 py-2 text-xs font-semibold
+                bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+                text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              "
+              onClick={() => {
+                // hook up your dialog / routing here
+              }}
+            >
+              Get Started
             </Button>
+
+            <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full border-white/30 bg-slate-900/60 text-white"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-80 bg-slate-950 text-white">
+                <SheetHeader>
+                  <SheetTitle>
+                    <Link to="/" onClick={() => setSheetOpen(false)} className="inline-flex items-center gap-2">
+                      <img src={Logo} alt="Exclusive Calls" className="h-8 w-auto" />
+                    </Link>
+                  </SheetTitle>
+                </SheetHeader>
+
+                <nav className="mt-8 flex flex-col gap-2">
+                  {navLinks.map((link) => {
+                    const isActive = location.pathname === link.path;
+                    return (
+                      <button
+                        key={link.name}
+                        className={`
+                          w-full text-left px-4 py-3 rounded-xl text-sm font-medium
+                          transition-colors
+                          ${isActive ? "bg-white/10 text-white" : "text-slate-200 hover:bg-white/5"}
+                        `}
+                        onClick={() => {
+                          setSheetOpen(false);
+                          window.location.href = link.path;
+                        }}
+                      >
+                        {link.name}
+                      </button>
+                    );
+                  })}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </Container>
-    </div>
+    </header>
   );
 };
 
