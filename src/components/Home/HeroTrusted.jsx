@@ -29,31 +29,26 @@ const images = [
 
 const HeroTrusted = () => {
   return (
-    <div className=''>
-        <Container>
-            <div className='relative z-10 container py-12 lg:py-24 mx-auto'>
-                <div className="flex flex-col md:flex-row items-center gap-6 w-full">
-                    {/* Left Content */}
-                    <div className="md:w-1/5 w-full">
-                        <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold'>Tursted By</h1>
-                    </div>
-                    {/* Right Side - Marquee */}
-                    <div className='md:w-4/5 w-full overflow-hidden'>
-                        <Marquee speed={50} className='flex'>
-                            {images.map((image, index) => (
-                                <div
-                                    key={index}
-                                    className='flex mx-6'
-                                >
-                                    <img src={image} className='h-20 w-auto object-contain opacity-80 hover:opacity-100 transition'/>
-                                </div>
-                            ))}
-                        </Marquee>
-                    </div>
-                </div>
+    <Container>
+      <div className="py-16">
+        
+        {/* ⭐ CHANGE → Title aligned left with underline */}
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-10 h-1 bg-yellow-400 rounded-full"></div>
+          <h2 className="text-white text-2xl md:text-3xl font-bold">
+            Trusted by
+          </h2>
+        </div>
+
+        <Marquee speed={50} className="flex gap-10 py-4">
+          {images.map((image, i) => (
+            <div key={i} className="mx-10 opacity-70 hover:opacity-100">
+              <img src={image} className="h-10 md:h-16 object-contain" />
             </div>
-        </Container>
-    </div>
+          ))}
+        </Marquee>
+      </div>
+    </Container>
   )
 }
 

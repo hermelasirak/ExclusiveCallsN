@@ -114,6 +114,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* ⭐ CHANGE - glass input style matching screenshot */
+.glass-input {
+  @apply backdrop-blur-xl bg-white/10 border border-white/20 text-white placeholder-white/60 transition-all rounded-xl;
+}
+
   body {
     @apply bg-background text-foreground;
   }

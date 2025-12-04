@@ -11,126 +11,140 @@ const whyUs = [
     {
         icon: "✨",
         title: "Consistent Presence",
-        description: "Daily content that keeps you top-of-mind"
+        description: "Daily content that keeps you top-of-mind",
+        gradient:"bg-gradient-to-br from-[#FF0080] to-[#7928CA]",
     },
     {
-        icon: "✨",
-        title: "Consistent Presence",
-        description: "Daily content that keeps you top-of-mind"
+        icon: "💬",
+        title: "Active Community",
+        description: "Real engagement with your audience",
+        gradient:"bg-gradient-to-br from-[#FF0080] to-[#7928CA]",
     },
     {
-        icon: "✨",
-        title: "Consistent Presence",
-        description: "Daily content that keeps you top-of-mind"
+        icon: "🎨",
+        title: "Brand Authority",
+        description: "Professional content that builds trust",
+        gradient:"bg-gradient-to-br from-[#FF0080] to-[#7928CA]",
     },
 ]
 
 const SocialMedia = () => {
   return (
-    <div className='min-h-screen py-12 grid grid-cols-1 md:grid-cols-2 bg-gradient-to-br from-slate-50 via-white to-blue-50/30'>
-    
-        {/* Background decorations */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-primary-foreground/10 rounded-full blur-3xl"></div>    
-
-        {/*Left Side*/}
-        <section className='flex flex-col w-fit overflow-hidden py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative'>
-            <Container className="relative z-10">
-                <div className='text-start mb-10'>
-                    <div className='border border-white/30 bg-purple-400 rounded-2xl w-fit'>
-                        <MessageCircle className='w-10 h-10 '/>
+    // ⭐ CHANGE – use a light background section instead of full-screen gradient grid
+    <section className="w-full bg-[#fff9f5] py-16 md:py-20 lg:py-24">
+      <Container>
+            {/* ⭐ CHANGE – two-column layout on desktop, stacked on mobile */}
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                {/* LEFT SECTION */}
+                <div className="w-full lg:w-1/2 relative">
+                    {/* small icon pill */}
+                    <div className="mb-6 inline-flex items-center justify-center rounded-2xl bg-pink-100 p-3">
+                    <MessageCircle className="w-6 h-6 text-pink-500" />
                     </div>
-                    <h2 className='text-3xl lg:text-5xl font-bold mb-6 leading-tight'>
-                        BDR Services
+
+                    <h2 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight text-slate-900">
+                        Social Media Content & Management
                     </h2>
-                    <h3 className='text-2xl lg:text-4xl font-bold mb-6 text-orange-400'>
-                        Direct Connection with your customers
+
+                    <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-orange-500">
+                        Content That Resonates With Your Audience
                     </h3>
-                    <p className='text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed'>
-                        Telemarketing remains one of the most effective ways to directly connect with potential 
-                        customers. Our telemarketing services are designed to increase customer engagement, 
-                        promote your products or services, and drive sales growth. With a dedicated team of 
-                        trained professionals, we deliver personalized, results-oriented communication that 
-                        strengthens relationships with your leads.
+
+                    <p className="text-sm md:text-base lg:text-lg text-slate-600 max-w-xl leading-relaxed mb-8">
+                        Effective social media requires more than just posting regularly—it requires crafting content 
+                        that resonates with your audience. Our content creation and management services take 
+                        care of everything from developing a content calendar to posting, monitoring, and 
+                        responding to engagement. We ensure your brand stays active and relevant on all major 
+                        platforms.
                     </p>
-                </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-2 justify-start items-start'>
-                    <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 cursor-pointer h-8">
-                        <CircleCheck className='w-8 h-8 mr-1 text-green-500'/>
-                        Lead generation and appointment setting
+                    {/* ⭐ CHANGE – bullet badges in two columns, wrapped nicely */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                        <CircleCheck className="w-4 h-4 text-emerald-500" />
+                        Content creation (images, graphics, videos)
                     </Badge>
-                    <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 cursor-pointer h-8">
-                        <CircleCheck className='w-8 h-8 mr-1 text-green-500'/>
-                        Inbound and Outbound Calling
+                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                        <CircleCheck className="w-4 h-4 text-emerald-500" />
+                        Content calendar planning
                     </Badge>
-                    <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 cursor-pointer h-8">
-                        <CircleCheck className='w-8 h-8 mr-1 text-green-500'/>
-                        Inbound and Outbound Calling
+                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                        <CircleCheck className="w-4 h-4 text-emerald-500" />
+                       Daily posting and community management
                     </Badge>
-                    <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 cursor-pointer h-8">
-                        <CircleCheck className='w-8 h-8 mr-1 text-green-500'/>
-                        Market research surveys and customer feedback collection
+                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                        <CircleCheck className="w-4 h-4 text-emerald-500" />
+                        Brand voice development and consistency
                     </Badge>
-                    <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 cursor-pointer h-8">
-                        <CircleCheck className='w-8 h-8 mr-1 text-green-500'/>
-                        Dedicated team of trained professionals
+                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
+                        <CircleCheck className="w-4 h-4 text-emerald-500" />
+                        Analytics and performance reporting
                     </Badge>
-                </div>
-
-                <div className="flex flex-row gap-10 rounded-2xl justify-start items-start w-full">
-                    <div className="text-white">
-                        <Link to='/contactus'>
-                            <Button className="bg-amber-600 rounded-2xl" >
-                                Get Started
-                                <MoveRight/>
-                            </Button>
-                        </Link>
                     </div>
-                    <div className="text-black opacity-30 rounded-2xl">
-                        <Link to='/pricing'>
-                            <Button>View Pricing</Button>
-                        </Link>
+
+                    {/* ⭐ CHANGE – CTA buttons styled like design */}
+                    <div className="flex flex-col sm:flex-row gap-4">
+                    <Link to="/contactus">
+                        <Button className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                        Get Started
+                        <MoveRight className="w-4 h-4" />
+                        </Button>
+                    </Link>
+                    <Link to="/pricing">
+                        <Button
+                        variant="outline"
+                        className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
+                        >
+                        View Pricing
+                        </Button>
+                    </Link>
                     </div>
                 </div>
-            </Container>
-                
-        </section>
 
-        {/*Right Side */}
-        <section className='flex flex-col w-fit mt-10 py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden'>
-            <Container className="relative z-10">
-                <div className=''>
-                    <img src={SocialImg} className='w-160 h-80 rounded-2xl'/>
-                </div>
-                <div className='text-center text-muted-foreground mb-8 mt-10'>
-                    <p>Why Choose Us</p>
-                </div>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-2 text-center'>
+                {/* RIGHT SECTION */}
+                <div className="w-full lg:w-1/2">
+                    {/* ⭐ CHANGE – large main image */}
+                    <div className="mb-8">
+                    <img
+                        src={SocialImg}
+                        alt="BDR Service"
+                        className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-[32px] shadow-xl"
+                    />
+                    </div>
+
+                    <div className="text-center text-slate-600 mb-6">
+                    <p className="text-xs md:text-sm tracking-wide uppercase">
+                        Why Choose This Service
+                    </p>
+                    </div>
+
+                    {/* ⭐ CHANGE – responsive 3-card row */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {whyUs.map((service, index) => (
                         <Card
-                            key={index}
-                            className='bg-gradient-to-r from-purple-500 to-purple-400 rounded-2xl '
+                        key={index}
+                        className={`
+                            rounded-[24px] text-left text-white
+                            bg-gradient-to-br ${service.gradient}
+                            shadow-lg flex flex-col
+                        `}
                         >
-                            <CardContent>
-                                <h3 className='text-2xl text-start'>
-                                    {service.icon}
-                                </h3>
-                                <h2 className='text-xl lg:text-2xl text-white'>
-                                    {service.title}
-                                </h2>
-                                <p className='text-muted-foreground text-md'>
-                                    {service.description}
-                                </p>
-                            </CardContent>
+                        <CardContent className="p-5 flex flex-col gap-2">
+                            <div className="text-2xl">{service.icon}</div>
+                            <h3 className="text-base md:text-lg font-semibold leading-snug">
+                            {service.title}
+                            </h3>
+                            <p className="text-xs md:text-sm text-blue-100/90">
+                            {service.description}
+                            </p>
+                        </CardContent>
                         </Card>
                     ))}
+                    </div>
                 </div>
-            </Container>
-        </section>
-
-        
-    </div>
+            </div>
+        </Container>
+    </section>
   )
 }
 

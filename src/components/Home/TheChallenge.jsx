@@ -11,52 +11,100 @@ const cards =[
     },
     {
         icon: "❌",
-        description: "Your top closers waste 60% of their time on outreach instead of high-value deals."
+        description: "Most teams give up after 2-3 touches, but it takes 18+ to convert decision-makers."
     },
     {
         icon: "❌",
-        description: "Your top closers waste 60% of their time on outreach instead of high-value deals."
+        description: "Every day without booked appointments = lost opportunities and stalled pipeline."
     },
     {
         icon: "❌",
-        description: "Your top closers waste 60% of their time on outreach instead of high-value deals."
+        description: "Recruiting, training, and churn costs you $50K+ per BDR annually."
     },
 ]
 
 const TheChallenge = () => {
   return (
-    <div 
-        className='relative bg-cover bg-no-repeat w-full h-fit'
-        style={{backgroundImage: `url(${BgImg})`}}
+    <div
+      className="
+        // ⭐ CHANGE – light section background like the design
+        relative w-full bg-[#fff9f5]
+      "
+      // style={{ backgroundImage: `url(${BgImg})` }}
     >
-        <Container>
-            <div className='h-full'>
-                <div className='py-24 px-6 lg:px-16'>
-                    <div className='fh-full flex flex-col justify-center items-center '>
-                        <div className='flex flex-col gap-4 py-4'>
-                            <Badge className="opacity-40 items-center h-8">The Challenge</Badge>
-                            <h1 className='font-extrabold text-2xl md:text-5xl lg:text-6xl text-blue-900/80'>
-                                Your Sales Team Shouldn't Be 
-                                <span className='block items-center'>Stuck Prospecting</span>
-                            </h1>
-                            <p className='text-muted-foreground text-xl'>
-                                Every minute spent dialing cold leads is a minute not spent closing deals.
-                                Here’s whats costing you revenue right now.
-                            </p>
-                        </div>
-                        <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
-                            {cards.map((items, index) =>(
-                                <Card
-                                    key={index}
-                                    className='rounded-2xl shadow-lg opacity-40 px-2 py-4 flex flex-col items-center text-center h-30 w-65'
+      <Container>
+            <div className="py-16 md:py-20 lg:py-24">
+                <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+                    {/* ⭐ CHANGE – orange pill badge */}
+                    <Badge
+                    className="
+                        rounded-full px-4 py-1 text-xs md:text-sm
+                        border border-orange-300 bg-orange-50 text-orange-500
+                    "
+                    >
+                    The Challenge
+                    </Badge>
+
+                    {/* ⭐ CHANGE – heading styles */}
+                    <h1 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#0843a1] leading-tight">
+                    Your Sales Team Shouldn’t Be
+                    <span className="block">Stuck Prospecting</span>
+                    </h1>
+
+                    {/* ⭐ CHANGE – subtext styling */}
+                    <p className="max-w-3xl text-sm md:text-base lg:text-lg text-slate-600">
+                    Every minute spent dialing cold leads is a minute not spent closing deals.
+                    Here’s what’s costing you revenue right now.
+                    </p>
+
+                    {/* ⭐ CHANGE – responsive grid & card styles */}
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 w-full">
+                    {cards.map((item, index) => {
+                        const isDanger = item.variant === "danger";
+
+                        return (
+                        <Card
+                            key={index}
+                            className={`
+                            group
+                            rounded-3xl px-4 py-5 md:px-6 md:py-6
+                            flex items-stretch
+                            border
+                            bg-white
+                            transition-all duration-200
+                            hover:shadow-xl hover:-translate-y-1
+                            ${
+                                isDanger
+                                ? "border-red-300 bg-red-50/40"
+                                : "border-slate-200"
+                            }
+                            `}
+                        >
+                            <CardContent className="p-0 flex flex-col gap-4 text-left">
+                            {/* ⭐ CHANGE – icon circle like screenshot */}
+                            <div className="flex items-center">
+                                <div
+                                className={`
+                                    h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold
+                                    ${
+                                    isDanger
+                                        ? "bg-red-500 text-white"
+                                        : "bg-slate-100 text-slate-500"
+                                    }
+                                `}
                                 >
-                                    <CardContent className="p-0 flex flex-row ">
-                                        <h1 className='text-2xl items-center'>{items.icon}</h1>
-                                        <p className='text-black'> {items.description} </p>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
+                                {item.icon}
+                                </div>
+                            </div>
+
+                            {/* description */}
+                            <p className="text-sm md:text-base text-slate-700">
+                                {item.description}
+                            </p>
+                            </CardContent>
+                        </Card>
+                        );
+                    })}
                     </div>
                 </div>
             </div>

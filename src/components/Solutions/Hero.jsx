@@ -7,36 +7,56 @@ import HeroBg from '@/assets/HeroBackground.jpeg'
 const Hero = () => {
   return (
     <div
-        className="relative bg-cover bg-center bg-no-repeat w-full h-[90vh] xl:h-[90vh]"
-        style={{backgroundImage: `url(${HeroBg})`}}
+      className="
+        relative bg-cover bg-center bg-no-repeat w-full
+        // ⭐ CHANGE: use min-height so it scales better on different screens
+        min-h-[80vh] md:min-h-[60vh] lg:min-h-[70vh]
+      "
+      style={{ backgroundImage: `url(${HeroBg})` }}
     >
-        <Container className='h-full'>
-            <div className='h-full flex flex-col justify-center items-center'>
-                <div className='relative py-2'>
-                    <div className='flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-10 text-start md:text-center mt-10 mx-auto'>
-                        <div className="max-w-[700px]">
-                            <h1 className='scroll-m-20 text-4xl md:text-4xl lg:text-6xl text-white font-extrabold'>
-                                Sales Growth Solutions {" "}
-                                <span className='block text-orange-400 mt-4'>Built For Your Success</span>
-                            </h1>
-                        </div>
-                        <div className="max-w-screen-md">
-                            <p className='lg:text-xl text-muted-foreground'>
-                                Comprehensive BDR services designed to fill your pipeline with qualified 
-                                appointments and accelerate your revenue growth.
-                            </p>
-                        </div>
-                        <div className='rounded-2xl text-white h-20'>
-                            <Link to='/contactus'>
-                                <Button className='bg-orange-400'>
-                                    Schedule a Consultation
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+      <Container className="h-full">
+        {/* ⭐ CHANGE: center content vertically with padding */}
+        <div className="h-full flex flex-col justify-center items-center py-16 md:py-24 lg:py-28">
+          <div className="relative mt-6">
+            {/* Heading + subheading */}
+            <div className="flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 text-center mx-auto max-w-3xl">
+              <div className="max-w-[900px]">
+                {/* ⭐ CHANGE: responsive sizes and no extra margin between lines */}
+                <h1 className="scroll-m-20 text-3xl md:text-6xl lg:text-6xl font-extrabold text-white leading-tight">
+                  Sales Growth Solutions
+                  <span className="block text-orange-400 mt-2">
+                    Built For Your Success
+                  </span>
+                </h1>
+              </div>
+
+              <div className="max-w-3xl">
+                {/* ⭐ CHANGE: use soft white text instead of muted-foreground */}
+                <p className="text-sm md:text-base lg:text-lg text-white/80">
+                  Comprehensive BDR services designed to fill your pipeline with
+                  qualified appointments and accelerate your revenue growth.
+                </p>
+              </div>
+
+              {/* Call to action */}
+              <div className="mt-4">
+                <Link to="/contactus">
+                  {/* ⭐ CHANGE: gradient pill button, larger and centered */}
+                  <Button
+                    className="
+                      bg-gradient-to-r from-orange-500 to-amber-400
+                      px-8 py-4 rounded-full text-sm md:text-base
+                      font-semibold text-white shadow-xl
+                    "
+                  >
+                    Schedule a Consultation
+                  </Button>
+                </Link>
+              </div>
             </div>
-        </Container>
+          </div>
+        </div>
+      </Container>
     </div>
   )
 }

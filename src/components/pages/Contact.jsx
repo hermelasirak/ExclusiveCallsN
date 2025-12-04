@@ -1,8 +1,13 @@
 import React from 'react'
+import ContactCard from '../Contact/ContactCard'
+import NAH from '../Pricing/NAH'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <ContactCard/>
+      <NAH/>
+    </div>
   )
 }
 

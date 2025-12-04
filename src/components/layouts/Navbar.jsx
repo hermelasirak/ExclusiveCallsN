@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../u
 import { Button } from "../ui/button";
 import Container from "./Container";
 import Logo from "@/assets/Logo.png";
-import { Menu } from "lucide-react";
+import { Menu, MoveRight } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Solutions", path: "/solutions" },
   { name: "Pricing", path: "/pricing" },
   { name: "Testimonials", path: "/testimonials" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contact", path: "/contactus" },
 ];
 
 const Navbar = () => {
@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* RIGHT: nav pill */}
         <div
           className={`
-            flex items-center justify-between gap-3
+            flex items-center justify-between gap-3 h-15
             rounded-full border border-white/15
             px-3 py-1
             backdrop-blur-xl
@@ -80,35 +80,35 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <Button
-            className="
-              hidden md:inline-flex
-              rounded-full px-5 py-2 text-sm font-semibold
-              bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
-              text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
-              hover:brightness-110
-            "
-            onClick={() => {
-              // hook up your dialog / routing here
-            }}
-          >
-            Get Started Now
-          </Button>
+          <Link to='/contactus'>
+            <Button
+              className="
+                hidden md:inline-flex
+                rounded-full px-5 py-2 text-sm font-semibold
+                bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+                text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+                hover:brightness-110
+              "
+            >
+              Get Started Now
+              <MoveRight/>
+            </Button>
+          </Link>
 
           {/* Mobile: CTA + menu icon */}
           <div className="flex items-center gap-2 md:hidden">
-            <Button
-              className="
-                rounded-full px-4 py-2 text-xs font-semibold
-                bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
-                text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
-              "
-              onClick={() => {
-                // hook up your dialog / routing here
-              }}
-            >
-              Get Started
-            </Button>
+            <Link to='/contactus'>
+              <Button
+                className="
+                  rounded-full px-4 py-2 text-xs font-semibold
+                  bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+                  text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+                "
+              >
+                Get Started
+                <MoveRight/>
+              </Button>
+            </Link>
 
             <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger asChild>
