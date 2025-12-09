@@ -55,6 +55,12 @@ const Footer = () => {
               Testimonials
             </Link>
             <Link
+              to='/privacypolicy'
+              className="hover:text-orange-400 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
               to="/contactus"
               className="hover:text-orange-400 transition-colors"
             >

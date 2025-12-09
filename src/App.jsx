@@ -9,6 +9,8 @@ import Solutions from "./components/pages/Solutions";
 import Pricing from "./components/pages/Pricing";
 import Testimonials from "./components/pages/Testimonials";
 import Contact from "./components/pages/Contact";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Route path="/pricing" element={<Pricing/>}/>
           <Route path="/testimonials" element={<Testimonials/>}/>
           <Route path="/contactus" element={<Contact/>}/>
+          <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         </Route>
       </Routes>
     </>
