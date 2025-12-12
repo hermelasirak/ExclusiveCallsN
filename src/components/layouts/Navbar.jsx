@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import { Button } from "../ui/button";
 import Container from "./Container";
 import Logo from "@/assets/Logo.png";
@@ -11,6 +17,7 @@ const navLinks = [
   { name: "Services", path: "/services" },
   { name: "Solutions", path: "/solutions" },
   { name: "Pricing", path: "/pricing" },
+  { name: "Blog", path: "/blog" },
   { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contactus" },
 ];
@@ -53,7 +60,11 @@ const Navbar = () => {
             px-3 py-1
             backdrop-blur-xl
             transition-all duration-300
-            ${scrolled ? "bg-slate-900/70 shadow-lg shadow-black/40" : "bg-slate-900/60"}
+            ${
+              scrolled
+                ? "bg-slate-900/70 shadow-lg shadow-black/40"
+                : "bg-slate-900/60"
+            }
           `}
         >
           {/* Desktop nav links */}
@@ -67,7 +78,11 @@ const Navbar = () => {
                   className={`
                     relative text-sm font-medium px-3 py-2
                     transition-colors duration-200
-                    ${isActive ? "text-white" : "text-slate-200/80 hover:text-white"}
+                    ${
+                      isActive
+                        ? "text-white"
+                        : "text-slate-200/80 hover:text-white"
+                    }
                   `}
                 >
                   {link.name}
@@ -80,7 +95,7 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <Link to='/contactus'>
+          <Link to="/contactus">
             <Button
               className="
                 hidden md:inline-flex
@@ -91,13 +106,13 @@ const Navbar = () => {
               "
             >
               Get Started Now
-              <MoveRight/>
+              <MoveRight />
             </Button>
           </Link>
 
           {/* Mobile: CTA + menu icon */}
           <div className="flex items-center gap-2 md:hidden">
-            <Link to='/contactus'>
+            <Link to="/contactus">
               <Button
                 className="
                   rounded-full px-4 py-2 text-xs font-semibold
@@ -106,7 +121,7 @@ const Navbar = () => {
                 "
               >
                 Get Started
-                <MoveRight/>
+                <MoveRight />
               </Button>
             </Link>
 
@@ -120,11 +135,22 @@ const Navbar = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-80 bg-slate-950 text-white">
+              <SheetContent
+                side="right"
+                className="w-full sm:w-80 bg-slate-950 text-white"
+              >
                 <SheetHeader>
                   <SheetTitle>
-                    <Link to="/" onClick={() => setSheetOpen(false)} className="inline-flex items-center gap-2">
-                      <img src={Logo} alt="Exclusive Calls" className="h-8 w-auto" />
+                    <Link
+                      to="/"
+                      onClick={() => setSheetOpen(false)}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <img
+                        src={Logo}
+                        alt="Exclusive Calls"
+                        className="h-8 w-auto"
+                      />
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
@@ -138,7 +164,11 @@ const Navbar = () => {
                         className={`
                           w-full text-left px-4 py-3 rounded-xl text-sm font-medium
                           transition-colors
-                          ${isActive ? "bg-white/10 text-white" : "text-slate-200 hover:bg-white/5"}
+                          ${
+                            isActive
+                              ? "bg-white/10 text-white"
+                              : "text-slate-200 hover:bg-white/5"
+                          }
                         `}
                         onClick={() => {
                           setSheetOpen(false);
