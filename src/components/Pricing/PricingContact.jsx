@@ -1,94 +1,219 @@
-import React from 'react'
-import Container from '../layouts/Container'
-import { useState } from 'react'
-import ContactImg from '@/assets/HeroBackground.jpeg'
-import { Checkbox } from '../ui/checkbox'
-import { useToast } from '@/hooks/use-toast'
-import { useMutation } from '@tanstack/react-query' 
-import axios from 'axios'
-import { Loader2 } from 'lucide-react'
-import { Button } from '../ui/button'
-import { Card, CardContent } from '../ui/card'
-import { Input } from '../ui/input'
-import { Textarea } from '../ui/textarea'
-import { Link } from 'react-router-dom'
-import ReCAPTCHA from 'react-google-recaptcha'
+import React from "react";
+import Container from "../layouts/Container";
+import { useState } from "react";
+import ContactImg from "@/assets/HeroBackground.jpeg";
+import { Checkbox } from "../ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { Loader2 } from "lucide-react";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Link } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const PricingContact = () => {
+  const { toast } = useToast();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [officeNumber, setOfficeNumber] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const onCaptchaChange = (value) => setCaptchaValue(value);
 
-    const { toast } = useToast()
-    const [fullName, setFullName] = useState('')
-    const [email, setEmail] = useState('')
-    const [officeNumber, setOfficeNumber] = useState('')
-    const [mobileNumber, setMobileNumber] = useState('')
-    const [subject, setSubject] = useState('')
-    const [message, setMessage] = useState('')
-    const [captchaValue, setCaptchaValue] = useState(null)
-    const onCaptchaChange = (value) => setCaptchaValue(value)
+  const sendMailMutation = useMutation({
+    mutationFn: async (formData) =>
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}sendMail`, formData),
+    retry: false,
+    onError: (error) => {
+      toast({
+        variant: "destructive",
+        title: "Failed to Send Email",
+        description:
+          error?.response?.data?.message ||
+          "An error occurred while sending email.",
+        duration: 3000,
+        position: "top-right",
+      });
+    },
+  });
 
-    const sendMailMutation = useMutation({
-        mutationFn: async (formData) =>
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}sendMail`, formData),
-        retry: false,
-        onSuccess: () => {
-        toast({
-            title: 'Email Sent',
-            description: 'Your message was sent successfully!',
-            duration: 3000,
-            position: 'top-right',
-        })
-
-        setFullName('')
-        setEmail('')
-        setOfficeNumber('')
-        setMobileNumber('')
-        setSubject('')
-        setMessage('')
-        setCaptchaValue(null)
-        },
-        onError: (error) => {
-        toast({
-            variant: 'destructive',
-            title: 'Failed to send',
-            description:
-            error?.response?.data?.message ||
-            'An error occurred while sending.',
-            duration: 3000,
-            position: 'top-right',
-        })
-        },
-    })
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!captchaValue) {
-        toast({
-            variant: 'destructive',
-            title: 'Captcha Required',
-            description: 'Please complete the reCAPTCHA to proceed.',
-            duration: 3000,
-            position: 'top-right',
-        })
-        return;
+  const createCrmContactMutation = useMutation({
+    mutationFn: async (contactData) => {
+      const timestamp = Date.now();
+      return await axios.post(
+        "https://www.cutcrm.com:81/api/contact/add",
+        contactData,
+        {
+          headers: {
+            accept: "application/json, text/plain, */*",
+            "accept-language": "en-US,en;q=0.9",
+            companyid: "1",
+            "content-type": "application/json",
+            origin: "https://dashboard.cutcrm.com",
+            priority: "u=1, i",
+            referer: "https://dashboard.cutcrm.com/contacts",
+            timestamp: timestamp.toString(),
+          },
         }
+      );
+    },
+    retry: false,
+    onError: (error) => {
+      toast({
+        variant: "destructive",
+        title: "Failed to Create CRM Contact",
+        description:
+          error?.response?.data?.message ||
+          "An error occurred while creating CRM contact.",
+        duration: 3000,
+        position: "top-right",
+      });
+    },
+  });
 
-        const formData = {
-        to: 'info@exclusivecalls.com',
-        fullName,
-        email,
-        officeNumber,
-        mobileNumber,
-        subject,
-        message,
-        }
-
-        sendMailMutation.mutate(formData)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!captchaValue) {
+      toast({
+        variant: "destructive",
+        title: "Captcha Required",
+        description: "Please complete the reCAPTCHA to proceed.",
+        duration: 3000,
+        position: "top-right",
+      });
+      return;
     }
+
+    const formData = {
+      to: "info@exclusivecalls.com",
+      fullName,
+      email,
+      officeNumber,
+      mobileNumber,
+      subject,
+      message,
+    };
+
+    // Prepare CRM contact data
+    const crmContactData = {
+      twitter: "",
+      linkedin: "",
+      instagram: "",
+      facebook: "",
+      tiktok: "",
+      youtube: "",
+      external: true,
+      userId: 399,
+      firstName: fullName,
+      lastName: "",
+      phone: officeNumber || "",
+      alternatePhone: "",
+      mobile: mobileNumber || "",
+      email: email,
+      secondEmail: "",
+      companyName: subject || "",
+      isClient: false,
+      companyWebsite: "",
+      salesRepId: 0,
+      leadOwnerIds: [],
+      entityTypeId: "0",
+      leadStatusId: 0,
+      followUpId: 0,
+      recordOwnerId: 0,
+      leadSourceId: 0,
+      followUpEmail: "",
+      roleId: 0,
+      referredBy: 0,
+      dateContractSent: null,
+      taxId: 0,
+      seqStartDate: null,
+      contactAddress: {
+        id: 0,
+        contactId: 0,
+        street: "",
+        state: "",
+        city: "",
+        zipCode: "",
+      },
+      contract: null,
+      cardDetail: null,
+      myListId: "",
+      customFields: [],
+    };
+
+    try {
+      // Send both requests concurrently
+      const [emailResult, crmResult] = await Promise.allSettled([
+        sendMailMutation.mutateAsync(formData),
+        createCrmContactMutation.mutateAsync(crmContactData),
+      ]);
+
+      // Check results and show appropriate messages
+      const emailSuccess = emailResult.status === "fulfilled";
+      const crmSuccess = crmResult.status === "fulfilled";
+
+      if (emailSuccess && crmSuccess) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully!",
+          duration: 3000,
+          position: "top-right",
+        });
+      } else if (emailSuccess) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully!",
+          duration: 3000,
+          position: "top-right",
+        });
+      } else if (crmSuccess) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully!",
+          duration: 3000,
+          position: "top-right",
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Failed to Send",
+          description:
+            "An error occurred while sending your message. Please try again.",
+          duration: 3000,
+          position: "top-right",
+        });
+      }
+
+      // Clear form fields on any success
+      if (emailSuccess || crmSuccess) {
+        setFullName("");
+        setEmail("");
+        setOfficeNumber("");
+        setMobileNumber("");
+        setSubject("");
+        setMessage("");
+        setCaptchaValue(null);
+      }
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "An unexpected error occurred.",
+        duration: 3000,
+        position: "top-right",
+      });
+    }
+  };
 
   return (
     <div
       className="
-        relative bg-cover bg-center bg-no-repeat w-full
+relative bg-cover bg-center bg-no-repeat w-full
         // ⭐ CHANGE: use min-height + vertical padding instead of fixed 180vh
         min-h-[120vh] md:min-h-[100vh] py-16 md:py-20 lg:py-24
       "
@@ -106,10 +231,9 @@ const PricingContact = () => {
             </p>
 
             <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold leading-tight mb-4">
-              Where Can You Get Guaranteed Accurate{' '}
+              Where Can You Get Guaranteed Accurate{" "}
               <span className="block text-orange-400 mt-2">
-                Quality BDR’s{' '}
-                <span className="text-white">Like This?</span>
+                Quality BDR’s <span className="text-white">Like This?</span>
               </span>
             </h1>
 
@@ -172,6 +296,7 @@ const PricingContact = () => {
                       onChange={(e) => setFullName(e.target.value)}
                       required
                     />
+
                     <Input
                       placeholder="Email Address"
                       className="glass-input"
@@ -267,20 +392,24 @@ const PricingContact = () => {
                   {/* Submit button */}
                   <Button
                     type="submit"
-                    disabled={sendMailMutation.isLoading}
+                    disabled={
+                      sendMailMutation.isLoading ||
+                      createCrmContactMutation.isLoading
+                    }
                     className="
                       w-full rounded-full py-4 text-base md:text-lg font-semibold
                       bg-gradient-to-r from-orange-500 to-yellow-400 text-white
                       shadow-lg hover:brightness-110 transition
                     "
                   >
-                    {sendMailMutation.isLoading ? (
+                    {sendMailMutation.isLoading ||
+                    createCrmContactMutation.isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                         Sending...
                       </>
                     ) : (
-                      'Book A Free Call'
+                      "Book A Free Call"
                     )}
                   </Button>
                 </form>
@@ -290,7 +419,7 @@ const PricingContact = () => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default PricingContact
+export default PricingContact;
