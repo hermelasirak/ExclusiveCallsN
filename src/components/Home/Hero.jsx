@@ -15,7 +15,7 @@ const Hero = () => {
       className="
       relative bg-cover bg-center bg-no-repeat w-full
       // ⭐ CHANGE → correct hero height to match screenshot
-      min-h-[160vh] md:min-h-[170vh] lg:min-h-[160vh]
+      min-h-[160vh] md:min-h-[170vh] lg:min-h-[140vh]
       "
       style={{ backgroundImage: `url(${HeroBg})` }}
     >

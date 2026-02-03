@@ -45,7 +45,7 @@ const HeroCard = () => {
               text-white
               flex flex-col justify-center
               hover:-translate-y-1 hover:shadow-[0_30px_80px_rgba(15,23,42,0.8)]
-              transition-all
+              transition-all h-[200px] mb-6
             "
           >
             <CardContent className="p-6 md:p-8 flex flex-col items-center text-center gap-2">

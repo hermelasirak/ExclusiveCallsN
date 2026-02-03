@@ -18,9 +18,6 @@ const routes = [
   { path: "/testimonials", changefreq: "yearly", priority: 0.3 },
   { path: "/contactus", changefreq: "monthly", priority: 0.7 },
   { path: "/privacypolicy", changefreq: "yearly", priority: 0.3 },
-  { path: "/blog", changefreq: "daily", priority: 0.7 },
-  {url: '/blog/:id', changefreq: 'daily', priority: 0.7 },
-  { path: "/testimonials", changefreq: "yearly", priority: 0.3 },
 ];
 
 
