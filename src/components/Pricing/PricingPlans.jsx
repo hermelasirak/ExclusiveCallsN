@@ -9,7 +9,7 @@ const pricingCard = [
     {
       name: "Full Time",
       title: "160 Hours Per Month *",
-      description: "5000+ Dails Per Month *"  ,
+      description: "5000+ Dials Per Month *"  ,
       features: ["160* Hours Per Month", "5000+ * Dials Per Month", "Face to Face Appointments", "Phone Appointments", "Zoom Appointments", "Live Transfers", "Dedicated Caller", "Local Caller ID", "Phone + CRM", "Trainer", "Quality Assurance Representative", "Compliance Officer", "Team Leader", "Coach"],
       buttonText: "Get A Quote",
       highlight: true
@@ -17,7 +17,7 @@ const pricingCard = [
     {
       name: "Part Time",
       title: "80 Hours Per Month *",
-      description: "2000+ Dails Per Month *"  ,
+      description: "2000+ Dials Per Month *"  ,
       features: ["80* Hours Per Month", "2000+ * Dials Per Month", "Face to Face Appointments", "Phone Appointments", "Zoom Appointments", "Live Transfers", "Dedicated Caller", "Local Caller ID", "Phone + CRM", "Trainer", "Quality Assurance Representative", "Compliance Officer", "Team Leader", "Coach"],
       buttonText: "Get A Quote",
     },

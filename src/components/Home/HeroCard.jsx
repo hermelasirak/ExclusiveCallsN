@@ -11,7 +11,7 @@ const HeroCard = () => {
         {
             icon: Icon1,
             title: "5000+",
-            description1: "Dails Per Month*",
+            description1: "Dials Per Month*",
             descrioption2: "✓ Per Full-Time BDR"
         },
         {

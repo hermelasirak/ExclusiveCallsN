@@ -10,7 +10,7 @@ import WebImg from '@/assets/Services/Image3.png'
 const whyUs = [
     {
         icon: "⚡️",
-        title: "Lightnong Fast",
+        title: "Lightning Fast",
         description: "Optimized performance for instant loading",
         gradient: "bg-gradient-to-br from-[#4338CA] to-[#1E3A8A]",
     },

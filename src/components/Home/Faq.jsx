@@ -11,7 +11,7 @@ const questions = [
     },
     {
         id: "ques2",
-        question: "What if my industry is too nicheor technical?",
+        question: "What if my industry is too niche or technical?",
         answer: "Our outreach process adapts to niche and technical industries. We take time to understand your product, value proposition and target personas before launching any campaigns. This allows us to speak your prospects' language and engage the right type of decision-makers who fit your specific market."
     },
     {

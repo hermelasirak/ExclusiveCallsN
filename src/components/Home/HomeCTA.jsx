@@ -33,7 +33,7 @@ const HomeCTA = () => {
                     {/* Heading */}
                     <div className="max-w-[700px]">
                         <h1 className="scroll-m-20 text-4xl md:text-5xl lg:text-6xl text-white font-extrabold leading-tight">
-                            Ready To 3x Your
+                            Ready To 3x Your {" "}
                             <span className="block mt-2">Appointments?</span>
                         </h1>
                     </div>
