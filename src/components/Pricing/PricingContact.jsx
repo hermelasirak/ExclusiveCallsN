@@ -233,7 +233,7 @@ relative bg-cover bg-center bg-no-repeat w-full
             <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold leading-tight mb-4">
               Where Can You Get Guaranteed Accurate{" "}
               <span className="block text-orange-400 mt-2">
-                Quality BDR’s <span className="text-white">Like This?</span>
+                Quality BDRs <span className="text-white">Like This?</span>
               </span>
             </h1>
 

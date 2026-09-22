@@ -43,6 +43,7 @@ import Ecalls25 from "@/assets/Blogs/ecalls25.jpg";
 import Ecalls26 from "@/assets/Blogs/ecalls26.jpg";
 import Ecalls27 from "@/assets/Blogs/ecalls27.jpg";
 import Ecalls28 from "@/assets/Blogs/ecalls28.jpg";
+import Seo from "../Seo";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -181,6 +182,12 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <Seo
+        title="Blog | Insights & Strategies | Exclusive Calls"
+        description="Explore articles on B2B sales, appointment setting, and business growth strategies from the Exclusive Calls team."
+        path="/blog"
+        robots="noindex, follow"
+      />
       <PagesHeader pageTitle="Blogs" />
 
       <Container>

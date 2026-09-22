@@ -6,6 +6,7 @@ import PagesHeader from "../Common/PagesHeader";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import Seo from "../Seo";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -68,6 +69,12 @@ const BlogDetails = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <Seo
+        title={blog?.title ? `${blog.title} | Exclusive Calls Blog` : "Blog | Exclusive Calls"}
+        description="Exclusive Calls blog article."
+        path={`/blog/${id}`}
+        robots="noindex, follow"
+      />
       <PagesHeader pageTitle={blog ? blog.title : "Loading..."} />
 
       <Container>

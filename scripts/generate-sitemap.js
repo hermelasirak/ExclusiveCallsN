@@ -10,14 +10,13 @@ const __dirname = path.dirname(__filename);
 const SITE_URL = "https://exclusivecalls.com";
 
 const routes = [
-  { path: "/", changefreq: "monthly", priority: 0.7 },
-  { path: "/services", changefreq: "monthly", priority: 0.7 },
-  { path: "/solutions", changefreq: "monthly", priority: 0.7 },
-  { path: "/pricing", changefreq: "monthly", priority: 0.7 },
-  { path: "/blog", changefreq: "daily", priority: 0.7 },
-  { path: "/testimonials", changefreq: "yearly", priority: 0.3 },
-  { path: "/contactus", changefreq: "monthly", priority: 0.7 },
-  { path: "/privacypolicy", changefreq: "yearly", priority: 0.3 },
+  { path: "/", changefreq: "weekly", priority: 1.0 },
+  { path: "/services", changefreq: "monthly", priority: 0.8 },
+  { path: "/pricing", changefreq: "monthly", priority: 0.9 },
+  { path: "/testimonials", changefreq: "monthly", priority: 0.5 },
+  { path: "/contactus", changefreq: "monthly", priority: 0.6 },
+  { path: "/privacypolicy", changefreq: "yearly", priority: 0.2 },
+  { path: "/termsandconditions", changefreq: "yearly", priority: 0.2 },
 ];
 
 

@@ -226,7 +226,7 @@ const ContactCard = () => {
             <h1 className="scroll-m-20 text-4xl md:text-5xl lg:text-6xl text-white font-extrabold leading-tight">
               Where Can You Get Guaranteed{" "}
               <span className="block text-orange-400 mt-4">
-                Quality BDR’s <span className="text-white">Like This?</span>
+                Quality BDRs <span className="text-white">Like This?</span>
               </span>
             </h1>
             <p className="mt-6 lg:text-xl text-white opacity-90">

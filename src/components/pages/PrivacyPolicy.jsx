@@ -1,9 +1,16 @@
 import React from 'react'
 import Container from '../layouts/Container'
+import Seo from "../Seo";
 
 const PrivacyPolicy = () => {
   return (
     <>
+        <Seo
+          title="Privacy Policy | Exclusive Calls"
+          description="Learn how Exclusive Calls collects, uses, and protects your information across our website, services, and communications."
+          path="/privacypolicy"
+          robots="noindex, follow"
+        />
         <Container className='h-full py-24 lg:py-36'>
             <h1 className="text-2xl font-bold py-6 xl:py-16">
             Privacy Policy for Exclusive Calls

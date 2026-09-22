@@ -9,8 +9,10 @@ import Pricing from "./components/pages/Pricing";
 import Testimonials from "./components/pages/Testimonials";
 import Contact from "./components/pages/Contact";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import TermsAndConditions from "./components/pages/TermsAndConditions";
 import Blog from "./components/pages/Blog";
 import BlogDetails from "./components/pages/BlogDetails";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -25,9 +27,11 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contactus" element={<Contact />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -7,7 +7,7 @@ const questions = [
     {
         id: "ques1",
         question: "How do I know the appointments will be qualified?",
-        answer: "Appointments are set with decision-makers who have budget, authority, and a real business need. Each meeting is pre-qualifies through our vetting process to ensure it aligns with your target criteria. Our focus is on quality, so your team spends time with prospects who can actually move forward."
+        answer: "Appointments are set with decision-makers who have budget, authority, and a real business need. Each meeting is pre-qualified through our vetting process to ensure it aligns with your target criteria. Our focus is on quality, so your team spends time with prospects who can actually move forward."
     },
     {
         id: "ques2",

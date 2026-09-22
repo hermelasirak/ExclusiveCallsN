@@ -1,9 +1,16 @@
 import React from 'react'
 import Container from '../layouts/Container'
+import Seo from "../Seo";
 
 const TermsAndConditions = () => {
   return (
     <>
+        <Seo
+          title="Terms and Conditions | Exclusive Calls"
+          description="Review the terms and conditions governing use of the ExclusiveCalls.com website and our business development services."
+          path="/termsandconditions"
+          robots="noindex, follow"
+        />
         <Container className='h-full py-24 lg:py-36'>
             <h1 className="text-2xl font-bold py-6 xl:py-16">
             Terms and Conditions
