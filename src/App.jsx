@@ -13,11 +13,14 @@ import TermsAndConditions from "./components/pages/TermsAndConditions";
 import Blog from "./components/pages/Blog";
 import BlogDetails from "./components/pages/BlogDetails";
 import NotFound from "./components/pages/NotFound";
+import PrivacyChoices from "./components/pages/PrivacyChoices";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 
 function App() {
   return (
     <>
       <ScrollToTop />
+      <CookieConsentBanner />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -27,6 +30,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contactus" element={<Contact />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-choices" element={<PrivacyChoices />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetails />} />

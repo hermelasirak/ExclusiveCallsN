@@ -1,0 +1,20 @@
+# Exclusive Calls SPA + Global Privacy Control mirror.
+# Sec-GPC is an HTTP header. This copies it into a first-party cookie the
+# consent script can read before Google Tag Manager loads.
+<IfModule mod_setenvif.c>
+  SetEnvIf Sec-GPC "^1$" ECALLS_GPC=1
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always add Set-Cookie "ecalls_gpc=1; Path=/; SameSite=Lax" env=ECALLS_GPC
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

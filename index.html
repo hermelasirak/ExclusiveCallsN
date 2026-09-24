@@ -9,6 +9,39 @@
     <link rel="canonical" href="https://exclusivecalls.com/" />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
+    <!-- Google Consent Mode v2: analytics on, ads denied until Accept.
+         Reads ecalls_cookie_consent. Global Privacy Control (and the
+         ecalls_gpc cookie mirrored from Sec-GPC) is treated as Reject.
+         Meta / TikTok snippets are not in this shell. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      (function () {
+        var choice = null;
+        var gpc = false;
+        try { choice = localStorage.getItem('ecalls_cookie_consent'); } catch (e) {}
+        try { if (navigator.globalPrivacyControl === true) gpc = true; } catch (e) {}
+        try {
+          if (/(?:^|;\s*)ecalls_gpc=1(?:;|$)/.test(document.cookie)) gpc = true;
+        } catch (e) {}
+        if (gpc && choice !== 'rejected') {
+          choice = 'rejected';
+          try { localStorage.setItem('ecalls_cookie_consent', 'rejected'); } catch (e) {}
+        }
+        var ads = choice === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+          ad_storage: ads,
+          ad_user_data: ads,
+          ad_personalization: ads,
+          analytics_storage: 'granted',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+      })();
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -24,6 +57,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="/chat-widget-consent-gate.js"></script>
     <script  
       theme='{"primary":"#ed8015","background":"#fffcfc"}' 
       src="https://chatbot.ecalls.ai/embed.js"

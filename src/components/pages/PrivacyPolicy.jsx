@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Container from '../layouts/Container'
 import Seo from "../Seo";
 
@@ -59,8 +60,10 @@ const PrivacyPolicy = () => {
             3. How We Share Your Information
             </h2>
             <p>
-            We do not sell or rent your information. We may share your
-            information:
+            We do not sell your personal information for money, and we do not
+            rent it. Advertising cookies, if you accept them, can count as
+            "sharing" under California law. See section 9 for how to opt out.
+            We may share your information:
             </p>
             <ul className="list-disc ml-6">
             <li>
@@ -82,8 +85,10 @@ const PrivacyPolicy = () => {
                 review or update your information.
             </li>
             <li>
-                <strong>Cookies:</strong> Manage your cookie preferences through
-                your browser settings.
+                <strong>Cookies:</strong> On your first visit, choose Accept or
+                Reject for advertising cookies. That choice is saved in this
+                browser until you clear site data. Change it anytime with Cookie
+                settings in the footer, or use your browser settings.
             </li>
             </ul>
             <h2 className="text-xl font-semibold mt-6">5. Data Security</h2>
@@ -129,7 +134,54 @@ const PrivacyPolicy = () => {
             posted on this page with a revised "Effective Date." Continued use of
             our services after changes indicates your acceptance.
             </p>
-            <h2 className="text-xl font-semibold mt-6">9. Contact Us</h2>
+            <h2 className="text-xl font-semibold mt-6">
+            9. California Privacy Choices (CCPA/CPRA)
+            </h2>
+            <p>
+            If you are a California resident, the California Consumer Privacy
+            Act, as amended by the CPRA, lets you know, delete, and correct
+            personal information, and opt out of the "sale" or "sharing" of
+            personal information for cross-context behavioral advertising.
+            </p>
+            <p className="mt-4">
+            Exclusive Calls, operated by Amin Empire Inc., does not sell
+            personal information for money. If you Accept advertising cookies,
+            advertising partners may receive identifiers such as a cookie ID
+            and IP address to measure or personalize ads. Under California law
+            that can count as "sharing."
+            </p>
+            <p className="mt-4">You can opt out at any time:</p>
+            <ul className="list-disc ml-6">
+            <li>
+                Choose Reject on the cookie banner, or open Cookie settings in
+                the footer and choose Reject.
+            </li>
+            <li>
+                Use{" "}
+                <Link to="/privacy-choices" className="text-[#ed8015] hover:underline">
+                Do Not Sell or Share My Personal Information
+                </Link>
+                . That page turns advertising cookies off.
+            </li>
+            <li>
+                If your browser sends Global Privacy Control (the Sec-GPC
+                header or <span className="whitespace-nowrap">navigator.globalPrivacyControl</span>
+                ), we treat it as an opt-out of advertising cookies and of
+                sale or sharing.
+            </li>
+            </ul>
+            <p className="mt-4">
+            Analytics cookies that help us understand site traffic stay on.
+            Google advertising storage (ad_storage, ad_user_data, and
+            ad_personalization) stays off until you Accept, and stays off when
+            Global Privacy Control is on.
+            </p>
+            <p className="mt-4">
+            To request access, correction, or deletion, email
+            info@exclusivecalls.com or call +1 (888) 484-3515. This section
+            describes how the site behaves. It is not legal advice.
+            </p>
+            <h2 className="text-xl font-semibold mt-6">10. Contact Us</h2>
             <p>
             If you have any questions about this Privacy Policy, please contact us
             at:
