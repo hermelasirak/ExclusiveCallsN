@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
 import Container from "./Container";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 import { Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/assets/Logo.png";
-import { useState } from "react";
-import FooterImg from "@/assets/FooterImg.png"; 
 import { Lock, CheckCircle2, Trophy, Zap } from "lucide-react";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-
-    const [isContactDialogOpen, setContactDialogOpen] =useState(false);
 
   return (
     // ⭐ CHANGE: dark navy footer background, remove white/dark mix + background image
@@ -139,6 +136,22 @@ const Footer = () => {
 
           {/* Divider */}
           <div className="w-full h-px bg-white/10 mt-2" />
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm text-center">
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="hover:text-orange-400 transition-colors"
+            >
+              Cookie settings
+            </button>
+            <Link
+              to="/privacy-choices"
+              className="hover:text-orange-400 transition-colors"
+            >
+              Do Not Sell or Share My Personal Information
+            </Link>
+          </div>
 
           {/* Copyright */}
           <div className="text-[11px] md:text-xs text-slate-400 text-center">
