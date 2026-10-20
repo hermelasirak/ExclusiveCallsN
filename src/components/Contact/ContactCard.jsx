@@ -255,55 +255,100 @@ const ContactCard = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* ⭐ CHANGE - FULLY RESPONSIVE GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    placeholder="Full Name"
-                    className="glass-input"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    required
-                  />
-                  <Input
-                    placeholder="Email Address"
-                    className="glass-input"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+                  <div>
+                    <label htmlFor="fullName" className="sr-only">Full name</label>
+                    <Input
+                      id="fullName"
+                      name="fullName"
+                      autoComplete="name"
+                      placeholder="Full Name"
+                      className="glass-input"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="sr-only">Email address</label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="Email Address"
+                      className="glass-input"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      aria-required="true"
+                    />
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="officePhone" className="sr-only">Office phone number</label>
+                    <Input
+                      id="officePhone"
+                      name="officePhone"
+                      type="tel"
+                      autoComplete="tel-national"
+                      placeholder="Office Number"
+                      className="glass-input"
+                      value={officeNumber}
+                      onChange={(e) => setOfficeNumber(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="mobilePhone" className="sr-only">Mobile phone number</label>
+                    <Input
+                      id="mobilePhone"
+                      name="mobilePhone"
+                      type="tel"
+                      autoComplete="tel"
+                      placeholder="Mobile Number"
+                      className="glass-input"
+                      value={mobileNumber}
+                      onChange={(e) => setMobileNumber(e.target.value)}
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="company" className="sr-only">Company (optional)</label>
                   <Input
-                    placeholder="Office Number"
+                    id="company"
+                    name="company"
+                    autoComplete="organization"
+                    placeholder="Company (Optional)"
                     className="glass-input"
-                    value={officeNumber}
-                    onChange={(e) => setOfficeNumber(e.target.value)}
-                  />
-                  <Input
-                    placeholder="Mobile Number"
-                    className="glass-input"
-                    value={mobileNumber}
-                    onChange={(e) => setMobileNumber(e.target.value)}
-                    required
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                   />
                 </div>
 
-                <Input
-                  placeholder="Company (Optional)"
-                  className="glass-input"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                />
-
-                <Textarea
-                  className="glass-input h-32"
-                  placeholder="Tell us about your needs..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                />
+                <div>
+                  <label htmlFor="message" className="sr-only">How can we help?</label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    className="glass-input h-32"
+                    placeholder="Tell us about your needs..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    aria-required="true"
+                  />
+                </div>
 
                 <Card
-                  className="h-32 overflow-y-auto w-full max-w-3xl rounded-3xl p-6 md:p-10 
+                  tabIndex={0}
+                  role="region"
+                  aria-label="SMS consent details"
+                  className="h-32 overflow-y-auto w-full max-w-3xl rounded-3xl p-6 md:p-10
                                     backdrop-blur-xl bg-black/40 border border-white/20 shadow-2xl"
                 >
                   <CardContent>
@@ -329,12 +374,11 @@ const ContactCard = () => {
                             <li>Frequency: Up to 20 messages per month.</li>
                             <li>Message and data rates may apply.</li>
                           </ul>
-                          <span className="flex gap-1 items-center">
-                            <Checkbox id="terms" className=" w-3 h-3">
-                              I consent to receive customer care or
-                              informational messages related to my service
-                              requests.
-                            </Checkbox>
+                          <span className="flex gap-2 items-start">
+                            <Checkbox id="consent-care" className="w-4 h-4 mt-0.5" aria-required="true" />
+                            <label htmlFor="consent-care" className="cursor-pointer">
+                              I consent to receive customer care or informational messages related to my service requests.
+                            </label>
                           </span>
                           <p>
                             <strong>Note</strong>: Consent for informational
@@ -351,11 +395,11 @@ const ContactCard = () => {
                             <li>Frequency: Up to 10 messages per month.</li>
                             <li>Message and data rates may apply.</li>
                           </ul>
-                          <span className="flex gap-1 items-center">
-                            <Checkbox id="terms" className="w-3 h-3">
-                              I consent to receive marketing communications from
-                              Exclusive Calls.
-                            </Checkbox>
+                          <span className="flex gap-2 items-start">
+                            <Checkbox id="consent-marketing" className="w-4 h-4 mt-0.5" />
+                            <label htmlFor="consent-marketing" className="cursor-pointer">
+                              I consent to receive marketing communications from Exclusive Calls.
+                            </label>
                           </span>
                           <p>
                             <strong>Note</strong>: Opting into marketing
@@ -378,13 +422,16 @@ const ContactCard = () => {
                               and will never be sold or shared without your
                               consent.
                             </li>
-                            For more details{" "}
-                            <Link
-                              to="/privacypolicy"
-                              className="text-orange-400"
-                            >
-                              [View our Privacy Policy here.]
-                            </Link>
+                            <li>
+                              For more details,{" "}
+                              <Link
+                                to="/privacypolicy"
+                                className="text-orange-400 underline"
+                              >
+                                view our Privacy Policy
+                              </Link>
+                              .
+                            </li>
                           </ul>
                         </li>
                         <li>

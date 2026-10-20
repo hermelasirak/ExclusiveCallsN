@@ -24,6 +24,7 @@ const Footer = () => {
 
           {/* Nav links */}
           <nav
+            aria-label="Footer"
             className="
               flex flex-col sm:flex-row items-center justify-center
               gap-3 sm:gap-6 text-sm md:text-base
@@ -60,6 +61,8 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
+            <Link to="/termsandconditions" className="hover:text-orange-400 transition-colors">Terms and Conditions</Link>
+            <Link to="/accessibility" className="hover:text-orange-400 transition-colors">Accessibility</Link>
             <Link
               to="/contactus"
               className="hover:text-orange-400 transition-colors"

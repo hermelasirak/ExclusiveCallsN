@@ -42,9 +42,9 @@ const HeroCard = () => {
                 >
                     <CardContent className="p-0 flex flex-col items-center">
                     {/* ⭐ CHANGE: bigger orange number, centered */}
-                    <h1 className="font-extrabold text-3xl md:text-4xl text-orange-400 mb-2">
+                    <p className="font-extrabold text-3xl md:text-4xl text-orange-400 mb-2">
                         {item.title}
-                    </h1>
+                    </p>
                     <p className="font-semibold text-xs md:text-sm lg:text-base text-white/90">
                         {item.description}
                     </p>

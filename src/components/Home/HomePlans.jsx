@@ -54,9 +54,9 @@ const HomePlans = () => {
 
           {/* Heading */}
           <div className="max-w-3xl">
-            <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1] leading-tight">
+            <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1] leading-tight">
               Choose Your Growth Plan
-            </h1>
+            </h2>
           </div>
 
           {/* Subheading */}

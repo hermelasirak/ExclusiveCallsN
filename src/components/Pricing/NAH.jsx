@@ -35,9 +35,9 @@ const NAH = () => {
             {/* Heading */}
             <div className="max-w-[700px]">
               {/* ⭐ CHANGE: heading color and responsive sizes */}
-              <h1 className="scroll-m-20 text-3xl md:text-6xl lg:text-7xl font-extrabold text-[#0843a1]">
+              <h2 className="scroll-m-20 text-3xl md:text-6xl lg:text-7xl font-extrabold text-[#0843a1]">
                 Need Any Help?
-              </h1>
+              </h2>
             </div>
 
             {/* Subtext */}

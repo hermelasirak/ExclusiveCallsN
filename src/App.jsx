@@ -10,6 +10,7 @@ import Testimonials from "./components/pages/Testimonials";
 import Contact from "./components/pages/Contact";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import TermsAndConditions from "./components/pages/TermsAndConditions";
+import Accessibility from "./components/pages/Accessibility";
 import Blog from "./components/pages/Blog";
 import BlogDetails from "./components/pages/BlogDetails";
 import NotFound from "./components/pages/NotFound";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/contactus" element={<Contact />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
         </Route>

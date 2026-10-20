@@ -80,9 +80,9 @@ const TestimonialCards = () => {
               </Badge>
             </div>
             <div className="max-w-[900px] mb-2">
-              <h1 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl text-[#0843a1] font-extrabold">
+              <h2 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl text-[#0843a1] font-extrabold">
                 What Our Clients Say
-              </h1>
+              </h2>
             </div>
             <div className="max-w-screen-md">
               <p className="text-sm md:text-base lg:text-lg text-slate-600">
@@ -117,7 +117,12 @@ const TestimonialCards = () => {
                   </div>
 
                   {/* ⭐ CHANGE – description scrollable only if long */}
-                  <p className="text-xs md:text-sm lg:text-[15px] text-white/90 leading-relaxed mb-4 max-h-40 overflow-y-auto pr-1">
+                  <p
+                    tabIndex={0}
+                    role="region"
+                    aria-label={`Review from ${review.name}`}
+                    className="text-xs md:text-sm lg:text-[15px] text-white/90 leading-relaxed mb-4 max-h-40 overflow-y-auto pr-1 focus-visible:outline-2 focus-visible:outline-orange-300"
+                  >
                     {review.description}
                   </p>
 

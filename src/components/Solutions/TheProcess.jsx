@@ -57,9 +57,9 @@ const TheProcess = () => {
 
               <div className="max-w-[900px]">
                 {/* ⭐ CHANGE: heading color to white and responsive sizes */}
-                <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold">
+                <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold">
                   How It Works
-                </h1>
+                </h2>
               </div>
 
               <div className="max-w-xl">

@@ -24,7 +24,7 @@ const Hero = () => {
                 {/* ⭐ CHANGE: responsive sizes and no extra margin between lines */}
                 <h1 className="scroll-m-20 text-3xl md:text-6xl lg:text-6xl font-extrabold text-white leading-tight">
                   Sales Growth Solutions
-                  <span className="block text-orange-400 mt-2">
+                  <span className="block text-[#b93c00] mt-2">
                     Built For Your Success
                   </span>
                 </h1>

@@ -56,9 +56,9 @@ const Faq = () => {
                     </Badge>
 
                     {/* ⭐ CHANGE – heading font size / color like screenshot */}
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1]">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1]">
                     Frequently Asked Questions
-                    </h1>
+                    </h2>
 
                     {/* ⭐ CHANGE – softer subtitle */}
                     <p className="text-sm md:text-base lg:text-lg text-slate-600">

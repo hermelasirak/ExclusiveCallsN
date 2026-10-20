@@ -51,9 +51,9 @@ const TheSolution = () => {
 
             {/* ⭐ CHANGE – heading styling */}
             <div className="max-w-3xl">
-                <h1 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#0843a1]">
+                <h2 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#0843a1]">
                 What You Get
-                </h1>
+                </h2>
             </div>
 
             {/* ⭐ CHANGE – description style & width */}

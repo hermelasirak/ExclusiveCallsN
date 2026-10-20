@@ -11,9 +11,9 @@ const ServicesCTA = () => {
         <div className="flex flex-col items-center text-center gap-6 md:gap-8">
           {/* Heading */}
             <div className="max-w-5xl">
-                <h1 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#0843a1] leading-tight">
+                <h2 className="scroll-m-20 text-3xl md:text-5xl lg:text-6xl font-extrabold text-[#0843a1] leading-tight">
                 Ready To Transform Your Pipeline?
-                </h1>
+                </h2>
             </div>
 
           {/* Subtext */}

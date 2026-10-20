@@ -46,9 +46,9 @@ const WhyUs = () => {
 
               {/* ⭐ CHANGE – blue heading, responsive sizes */}
               <div className="max-w-[800px]">
-                <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1]">
+                <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1]">
                   Benefits That Matter
-                </h1>
+                </h2>
               </div>
 
               <div className="max-w-xl">

@@ -62,13 +62,13 @@ const Navbar = () => {
             transition-all duration-300
             ${
               scrolled
-                ? "bg-slate-900/70 shadow-lg shadow-black/40"
-                : "bg-slate-900/60"
+                ? "bg-slate-900/95 shadow-lg shadow-black/40"
+                : "bg-slate-900/90"
             }
           `}
         >
           {/* Desktop nav links */}
-          <nav className="hidden md:flex items-center gap-2 lg:gap-4 px-2">
+          <nav aria-label="Main" className="hidden md:flex items-center gap-2 lg:gap-4 px-2">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -95,44 +95,47 @@ const Navbar = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <Link to="/contactus">
-            <Button
-              className="
-                hidden md:inline-flex
-                rounded-full px-5 py-2 text-sm font-semibold
-                bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
-                text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
-                hover:brightness-110
-              "
-            >
+          <Button
+            asChild
+            className="
+              hidden md:inline-flex
+              rounded-full px-5 py-2 text-sm font-semibold
+              bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+              text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              hover:brightness-110
+            "
+          >
+            <Link to="/contactus">
               Get Started Now
-              <MoveRight />
-            </Button>
-          </Link>
+              <MoveRight aria-hidden="true" />
+            </Link>
+          </Button>
 
           {/* Mobile: CTA + menu icon */}
           <div className="flex items-center gap-2 md:hidden">
-            <Link to="/contactus">
-              <Button
-                className="
-                  rounded-full px-4 py-2 text-xs font-semibold
-                  bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
-                  text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
-                "
-              >
+            <Button
+              asChild
+              className="
+                rounded-full px-4 py-2 text-xs font-semibold
+                bg-gradient-to-r from-[hsl(var(--accent-orange))] to-[hsl(var(--accent-gold))]
+                text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+              "
+            >
+              <Link to="/contactus">
                 Get Started
-                <MoveRight />
-              </Button>
-            </Link>
+                <MoveRight aria-hidden="true" />
+              </Link>
+            </Button>
 
             <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
                   size="icon"
+                  aria-label="Open menu"
                   className="rounded-full border-white/30 bg-slate-900/60 text-white"
                 >
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5" aria-hidden="true" />
                 </Button>
               </SheetTrigger>
               <SheetContent
@@ -155,12 +158,14 @@ const Navbar = () => {
                   </SheetTitle>
                 </SheetHeader>
 
-                <nav className="mt-8 flex flex-col gap-2">
+                <nav aria-label="Mobile" className="mt-8 flex flex-col gap-2">
                   {navLinks.map((link) => {
                     const isActive = location.pathname === link.path;
                     return (
-                      <button
+                      <Link
                         key={link.name}
+                        to={link.path}
+                        onClick={() => setSheetOpen(false)}
                         className={`
                           w-full text-left px-4 py-3 rounded-xl text-sm font-medium
                           transition-colors
@@ -170,13 +175,9 @@ const Navbar = () => {
                               : "text-slate-200 hover:bg-white/5"
                           }
                         `}
-                        onClick={() => {
-                          setSheetOpen(false);
-                          window.location.href = link.path;
-                        }}
                       >
                         {link.name}
-                      </button>
+                      </Link>
                     );
                   })}
                 </nav>

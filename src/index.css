@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+  --color-orange-500: #b93c00;
+  --color-orange-600: #9a3412;
+  --color-emerald-600: #047857;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -122,4 +128,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer base {
+  :focus-visible { outline: 3px solid #fb923c; outline-offset: 2px; }
+  .bg-white :focus-visible { outline-color: #b93c00; }
 }

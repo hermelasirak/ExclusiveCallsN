@@ -230,12 +230,12 @@ relative bg-cover bg-center bg-no-repeat w-full
               Book A Call Now!
             </p>
 
-            <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold leading-tight mb-4">
+            <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold leading-tight mb-4">
               Where Can You Get Guaranteed Accurate{" "}
               <span className="block text-orange-400 mt-2">
                 Quality BDRs <span className="text-white">Like This?</span>
               </span>
-            </h1>
+            </h2>
 
             <p className="lg:text-lg text-white/90 mb-8 max-w-xl">
               That’s where we come in. In 12 minutes of speaking to a team
@@ -289,53 +289,95 @@ relative bg-cover bg-center bg-no-repeat w-full
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* ⭐ CHANGE: responsive input grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Input
-                      placeholder="Full Name"
-                      className="glass-input"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      required
-                    />
+                    <div>
+                      <label htmlFor="p-fullName" className="sr-only">Full name</label>
+                      <Input
+                        id="p-fullName"
+                        name="fullName"
+                        autoComplete="name"
+                        placeholder="Full Name"
+                        className="glass-input"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        required
+                        aria-required="true"
+                      />
+                    </div>
 
-                    <Input
-                      placeholder="Email Address"
-                      className="glass-input"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
+                    <div>
+                      <label htmlFor="p-email" className="sr-only">Email address</label>
+                      <Input
+                        id="p-email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        placeholder="Email Address"
+                        className="glass-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        aria-required="true"
+                      />
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="p-officePhone" className="sr-only">Office phone number</label>
+                      <Input
+                        id="p-officePhone"
+                        name="officePhone"
+                        type="tel"
+                        autoComplete="tel-national"
+                        placeholder="Office Number"
+                        className="glass-input"
+                        value={officeNumber}
+                        onChange={(e) => setOfficeNumber(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="p-mobilePhone" className="sr-only">Mobile phone number</label>
+                      <Input
+                        id="p-mobilePhone"
+                        name="mobilePhone"
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="Mobile Number"
+                        className="glass-input"
+                        value={mobileNumber}
+                        onChange={(e) => setMobileNumber(e.target.value)}
+                        required
+                        aria-required="true"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-company" className="sr-only">Company (optional)</label>
                     <Input
-                      placeholder="Office Number"
+                      id="p-company"
+                      name="company"
+                      autoComplete="organization"
+                      placeholder="Company (Optional)"
                       className="glass-input"
-                      value={officeNumber}
-                      onChange={(e) => setOfficeNumber(e.target.value)}
-                    />
-                    <Input
-                      placeholder="Mobile Number"
-                      className="glass-input"
-                      value={mobileNumber}
-                      onChange={(e) => setMobileNumber(e.target.value)}
-                      required
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
                     />
                   </div>
 
-                  <Input
-                    placeholder="Company (Optional)"
-                    className="glass-input"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                  />
-
-                  <Textarea
-                    className="glass-input h-32"
-                    placeholder="Tell us about your needs..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                  />
+                  <div>
+                    <label htmlFor="p-message" className="sr-only">How can we help?</label>
+                    <Textarea
+                      id="p-message"
+                      name="message"
+                      className="glass-input h-32"
+                      placeholder="Tell us about your needs..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                      aria-required="true"
+                    />
+                  </div>
 
                   {/* ⭐ CHANGE: compliance & consent text below message, inside form card but simpler */}
                   <div className="text-[11px] md:text-xs text-white/80 space-y-3">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "../layouts/Container";
 import PagesHeader from "../Common/PagesHeader";
 import { Card, CardContent } from "../ui/card";
@@ -299,8 +299,8 @@ const Blog = () => {
 
                       {/* Read More Button */}
                       <div className="mt-auto pt-4 border-t border-slate-100">
-                        <button
-                          onClick={() => navigate(`/blog/${post._id}`)}
+                        <Link
+                          to={`/blog/${post._id}`}
                           className="
                             flex items-center gap-2
                             text-sm font-semibold
@@ -312,7 +312,7 @@ const Blog = () => {
                         >
                           Read more
                           <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                        </button>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>

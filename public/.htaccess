@@ -1,0 +1,10 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(services|solutions|pricing|testimonials|contactus|privacypolicy|termsandconditions|accessibility|blog)/?$ index.html [L]
+RewriteRule ^blog/[^/]+/?$ index.html [L]
+ErrorDocument 404 /index.html
+RewriteRule ^ - [R=404,L]

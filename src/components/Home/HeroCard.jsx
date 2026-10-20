@@ -50,12 +50,12 @@ const HeroCard = () => {
           >
             <CardContent className="p-6 md:p-8 flex flex-col items-center text-center gap-2">
               {/* ⭐ CHANGE: icon sizing & margin */}
-              <img src={item.icon} className="w-10 h-10 mb-2" alt={item.title} />
+              <img src={item.icon} className="w-10 h-10 mb-2" alt="" />
 
               {/* ⭐ CHANGE: orange headline number */}
-              <h1 className="text-3xl md:text-4xl font-extrabold text-orange-400 mb-1">
+              <p className="text-3xl md:text-4xl font-extrabold text-orange-400 mb-1">
                 {item.title}
-              </h1>
+              </p>
 
               {/* ⭐ CHANGE: white label text */}
               <p className="text-xs md:text-sm lg:text-base font-semibold text-white/90">

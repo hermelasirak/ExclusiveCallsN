@@ -46,10 +46,10 @@ const TheChallenge = () => {
                     </Badge>
 
                     {/* ⭐ CHANGE – heading styles */}
-                    <h1 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#0843a1] leading-tight">
+                    <h2 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#0843a1] leading-tight">
                     Your Sales Team Shouldn’t Be
                     <span className="block">Stuck Prospecting</span>
-                    </h1>
+                    </h2>
 
                     {/* ⭐ CHANGE – subtext styling */}
                     <p className="max-w-3xl text-sm md:text-base lg:text-lg text-slate-600">

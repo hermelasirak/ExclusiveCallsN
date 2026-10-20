@@ -44,9 +44,9 @@ const ServiceCTA = () => {
             <div className="flex flex-col justify-center items-center gap-4 md:gap-6 text-center mx-auto">
               <div className="max-w-[900px]">
                 {/* ⭐ CHANGE – heading color & sizes to match hero */}
-                <h1 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold">
+                <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl text-white font-extrabold">
                   How It All Works Together?
-                </h1>
+                </h2>
               </div>
               <div className="max-w-xl">
                 {/* ⭐ CHANGE – softer white subtitle */}
