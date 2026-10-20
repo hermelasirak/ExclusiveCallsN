@@ -130,7 +130,8 @@
   }
 }
 
-@layer base {
-  :focus-visible { outline: 3px solid #fb923c; outline-offset: 2px; }
-  .bg-white :focus-visible { outline-color: #b93c00; }
+*:focus-visible {
+  outline: 3px solid #b93c00 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px #ffffff !important;
 }

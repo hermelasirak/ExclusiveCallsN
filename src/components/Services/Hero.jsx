@@ -51,37 +51,40 @@ const Hero = () => {
                 {/* ⭐ CHANGE: responsive button layout + pill styling */}
                 <div className="flex flex-col sm:flex-row gap-4 rounded-2xl justify-center items-center w-full mt-2">
                     <div className="text-white">
-                    <Link to="/services">
-                        <Button
+                    <Button
+                        asChild
                         className="
                             group
                             bg-gradient-to-r from-orange-500 to-amber-400
                             flex items-center gap-2 h-12 px-8 rounded-full
                             font-semibold shadow-xl
                         "
-                        >
+                    >
+                        <Link to="/services">
                         Explore Services
                         <MoveRight
                             className="transition-transform duration-300 group-hover:translate-x-1"
+                            aria-hidden="true"
                         />
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                     </div>
 
                     <div className="text-white">
-                    <Link to="/contactus">
-                        <Button
+                    <Button
+                        asChild
                         variant="outline"
                         className="
                             flex items-center gap-2 h-12 px-8 rounded-full
                             bg-white/10 border border-white/25
                             text-white backdrop-blur-xl shadow-lg
                         "
-                        >
+                    >
+                        <Link to="/contactus">
                         Book A Call
-                        <Phone className="h-4 w-4" />
-                        </Button>
-                    </Link>
+                        <Phone className="h-4 w-4" aria-hidden="true" />
+                        </Link>
+                    </Button>
                     </div>
                 </div>
                 </div>

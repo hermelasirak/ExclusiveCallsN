@@ -106,20 +106,21 @@ const HomePlans = () => {
 
               {/* CTA */}
               <div className="pt-2">
-                <Link to="/contactus">
-                  <Button
-                    className="
+                <Button
+                  asChild
+                  className="
                       w-full md:w-auto
                       bg-gradient-to-r from-orange-500 to-amber-400
                       rounded-full px-6 md:px-8 py-3
                       text-sm md:text-base font-semibold text-white
                       shadow-md flex items-center justify-center gap-2
                     "
-                  >
+                >
+                  <Link to="/contactus">
                     Get Started Now
-                    <MoveRight className="h-4 w-4" />
-                  </Button>
-                </Link>
+                    <MoveRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -172,20 +173,21 @@ const HomePlans = () => {
 
               {/* CTA */}
               <div className="pt-2">
-                <Link to="/contactus">
-                  <Button
-                    className="
+                <Button
+                  asChild
+                  className="
                       w-full md:w-auto
                       bg-gradient-to-r from-orange-500 to-amber-400
                       rounded-full px-6 md:px-8 py-3
                       text-sm md:text-base font-semibold text-white
                       shadow-md flex items-center justify-center gap-2
                     "
-                  >
+                >
+                  <Link to="/contactus">
                     Get Started Now
-                    <MoveRight className="h-4 w-4" />
-                  </Button>
-                </Link>
+                    <MoveRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>

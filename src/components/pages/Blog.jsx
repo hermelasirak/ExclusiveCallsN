@@ -247,7 +247,7 @@ const Blog = () => {
                           group-hover:scale-110
                         "
                       />
-                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
                         <Button
                           onClick={() => navigate(`/blog/${post._id}`)}
                           className="

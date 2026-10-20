@@ -75,7 +75,7 @@ const BlogDetails = () => {
         path={`/blog/${id}`}
         robots="noindex, follow"
       />
-      <PagesHeader pageTitle={blog ? blog.title : "Loading..."} />
+      <PagesHeader pageTitle={loading ? "Loading..." : blog ? blog.title : "Blog not found"} />
 
       <Container>
         {loading ? (
@@ -112,9 +112,9 @@ const BlogDetails = () => {
               <div className="px-8 pt-10 pb-8 border-b border-slate-100">
                 <div className="space-y-6">
                   {/* Title */}
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
                     {blog.title}
-                  </h1>
+                  </h2>
 
                   {/* Meta Information */}
                   <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">

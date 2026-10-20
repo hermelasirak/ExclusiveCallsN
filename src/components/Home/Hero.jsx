@@ -45,28 +45,30 @@ const Hero = () => {
 
           {/* ⭐ CHANGE → Buttons styled + spaced like screenshot */}
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-            <Link to="/contactus">
-              <Button
-                className="
+            <Button
+              asChild
+              className="
                 bg-gradient-to-r from-orange-500 to-amber-400
                 px-8 py-6 text-lg rounded-full font-semibold shadow-xl
                 flex items-center gap-2
               "
-              >
-                Book A Free Call <MoveRight className="w-5 h-5" />
-              </Button>
-            </Link>
+            >
+              <Link to="/contactus">
+                Book A Free Call <MoveRight className="w-5 h-5" aria-hidden="true" />
+              </Link>
+            </Button>
 
-            <Link to="/services">
-              <Button
-                className="
-                bg-white/10 border border-white/20 px-8 py-6 text-lg 
+            <Button
+              asChild
+              className="
+                bg-white/10 border border-white/20 px-8 py-6 text-lg
                 rounded-full font-semibold text-white shadow-lg backdrop-blur-xl
                 "
-              >
+            >
+              <Link to="/services">
                 See How It Works →
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Subtext */}

@@ -60,23 +60,23 @@ const SocialMedia = () => {
 
                     {/* ⭐ CHANGE – bullet badges in two columns, wrapped nicely */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                    <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                         <CircleCheck className="w-4 h-4 text-emerald-500" />
                         Content creation (images, graphics, videos)
                     </Badge>
-                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                    <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                         <CircleCheck className="w-4 h-4 text-emerald-500" />
                         Content calendar planning
                     </Badge>
-                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                    <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                         <CircleCheck className="w-4 h-4 text-emerald-500" />
                        Daily posting and community management
                     </Badge>
-                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+                    <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                         <CircleCheck className="w-4 h-4 text-emerald-500" />
                         Brand voice development and consistency
                     </Badge>
-                    <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
+                    <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
                         <CircleCheck className="w-4 h-4 text-emerald-500" />
                         Analytics and performance reporting
                     </Badge>
@@ -84,20 +84,21 @@ const SocialMedia = () => {
 
                     {/* ⭐ CHANGE – CTA buttons styled like design */}
                     <div className="flex flex-col sm:flex-row gap-4">
-                    <Link to="/contactus">
-                        <Button className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                    <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                        <Link to="/contactus">
                         Get Started
-                        <MoveRight className="w-4 h-4" />
-                        </Button>
-                    </Link>
-                    <Link to="/pricing">
-                        <Button
+                        <MoveRight className="w-4 h-4" aria-hidden="true" />
+                        </Link>
+                    </Button>
+                    <Button
+                        asChild
                         variant="outline"
                         className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
-                        >
+                    >
+                        <Link to="/pricing">
                         View Pricing
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                     </div>
                 </div>
 

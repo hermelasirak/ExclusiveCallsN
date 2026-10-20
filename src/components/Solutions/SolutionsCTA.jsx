@@ -17,7 +17,7 @@ const SolutionsCTA = () => {
               <h2 className="scroll-m-20 text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0843a1] leading-tight">
                 Ready to Transform Your
                 <span className="block mt-1">
-                  <span className="text-orange-400">Sales</span> Pipeline?
+                  <span className="text-[#b93c00]">Sales</span> Pipeline?
                 </span>
               </h2>
             </div>
@@ -32,33 +32,35 @@ const SolutionsCTA = () => {
 
             {/* ⭐ CHANGE: buttons — pill-shaped, responsive row/column */}
             <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center justify-center">
-              <Link to="/contactus">
-                <Button
-                  className="
+              <Button
+                asChild
+                className="
                     group
                     bg-gradient-to-r from-orange-500 to-amber-400
                     text-white rounded-full
                     px-8 py-4 text-sm md:text-base font-semibold
                     shadow-xl flex items-center gap-2
                   "
-                >
+              >
+                <Link to="/contactus">
                   Schedule Your Free Call
-                  <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </Link>
+                  <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
+              </Button>
 
-              <Link to="/pricing">
-                <Button
-                  variant="outline"
-                  className="
+              <Button
+                asChild
+                variant="outline"
+                className="
                     rounded-full px-8 py-4 text-sm md:text-base
                     bg-white text-slate-700 border border-slate-300
                     shadow-sm
                   "
-                >
+              >
+                <Link to="/pricing">
                   View Pricing Plans
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </Container>

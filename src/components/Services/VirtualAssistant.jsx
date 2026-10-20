@@ -59,27 +59,27 @@ const VirtualAssistant = () => {
 
             {/* ⭐ CHANGE – bullet badges in two columns on larger screens */}
             <div className=" flex flex-col overflow-hidden gap-3 mb-8">
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Administrative Support: Email organization, calendar scheduling, and data entry.
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Project Management: Coordinating tasks, tracking progress, and ensuring deadlines are met.
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Customer Support: Managing inquiries, responding to clients, and following up on tickets.
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Research and Reporting: Conducting market research and compiling detailed insights.
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Social Media Management: Scheduling posts, managing engagement, and maintaining brand presence.
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Personal Assistance: Organizing travel, meetings, and personal reminders.
               </Badge>
@@ -87,20 +87,21 @@ const VirtualAssistant = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contactus">
-                <Button className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+              <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                <Link to="/contactus">
                   Get Started
-                  <MoveRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <Link to="/pricing">
-                <Button
-                  variant="outline"
-                  className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
-                >
+                  <MoveRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
+              >
+                <Link to="/pricing">
                   View Pricing
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
 

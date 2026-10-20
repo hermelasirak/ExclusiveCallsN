@@ -50,25 +50,27 @@ const HomeCTA = () => {
                     {/* ⭐ CHANGE – CTA buttons styled like the design */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-4">
                         {/* Primary CTA */}
-                        <Link to="/contactus">
-                            <Button
+                        <Button
+                            asChild
                             className="
                                 group
                                 bg-gradient-to-r from-orange-500 to-amber-400
                                 px-8 py-5 rounded-full text-white font-semibold
                                 shadow-xl flex items-center gap-2
                             "
-                            >
+                        >
+                            <Link to="/contactus">
                             Get Started Now
                             <MoveRight
                                 className="transition-transform duration-300 group-hover:translate-x-1"
+                                aria-hidden="true"
                             />
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
 
                         {/* Secondary CTA – call button */}
-                        <a href="tel:1-888-484-3515">
-                            <Button
+                        <Button
+                            asChild
                             variant="outline"
                             className="
                                 bg-white/10 border border-white/25 text-white
@@ -76,11 +78,12 @@ const HomeCTA = () => {
                                 flex items-center gap-3
                                 backdrop-blur-xl shadow-lg
                             "
-                            >
+                        >
+                            <a href="tel:1-888-484-3515">
                             <span>Call Now: 1-888-484-3515</span>
-                            <Phone className="h-4 w-4" />
-                            </Button>
-                        </a>
+                            <Phone className="h-4 w-4" aria-hidden="true" />
+                            </a>
+                        </Button>
                     </div>
 
                     {/* ⭐ CHANGE – dynamic “spots” text with highlighted number */}

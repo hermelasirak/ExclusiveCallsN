@@ -40,18 +40,19 @@ const Hero = () => {
 
               {/* Call to action */}
               <div className="mt-4">
-                <Link to="/contactus">
-                  {/* ⭐ CHANGE: gradient pill button, larger and centered */}
-                  <Button
-                    className="
+                {/* ⭐ CHANGE: gradient pill button, larger and centered */}
+                <Button
+                  asChild
+                  className="
                       bg-gradient-to-r from-orange-500 to-amber-400
                       px-8 py-4 rounded-full text-sm md:text-base
                       font-semibold text-white shadow-xl
                     "
-                  >
+                >
+                  <Link to="/contactus">
                     Schedule a Consultation
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

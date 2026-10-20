@@ -26,35 +26,37 @@ const ServicesCTA = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
-            <Link to="/solutions">
-              <Button
-                className="
+            <Button
+              asChild
+              className="
                   group
                   bg-gradient-to-r from-orange-500 to-amber-400
                   px-8 py-4 rounded-full
                   text-sm md:text-base font-semibold text-white
                   shadow-xl flex items-center gap-2
                 "
-              >
+            >
+              <Link to="/solutions">
                 Explore Services
-                <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </Link>
+                <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            </Button>
 
-            <Link to="/contactus">
-              <Button
-                variant="outline"
-                className="
+            <Button
+              asChild
+              variant="outline"
+              className="
                   px-8 py-4 rounded-full
                   text-sm md:text-base font-medium
                   bg-white border border-slate-300 text-slate-700
                   flex items-center gap-2
                 "
-              >
+            >
+              <Link to="/contactus">
                 Book A Call
-                <Phone className="h-4 w-4" />
-              </Button>
-            </Link>
+                <Phone className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
 
           {/* Guarantee pill */}

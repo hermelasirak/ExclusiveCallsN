@@ -29,33 +29,35 @@ const TestimonialCTA = () => {
 
             {/* ⭐ CHANGE: buttons – gradient primary + white outline secondary, responsive layout */}
             <div className="flex flex-col sm:flex-row gap-4 mt-4 items-center justify-center">
-              <Link to="/contactus">
-                <Button
-                  className="
+              <Button
+                asChild
+                className="
                     group
                     bg-gradient-to-r from-orange-500 to-amber-400
                     text-white rounded-full
                     px-8 py-4 text-sm md:text-base font-semibold
                     shadow-xl flex items-center gap-2
                   "
-                >
+              >
+                <Link to="/contactus">
                   Schedule Your Free Call
-                  <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </Link>
+                  <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                </Link>
+              </Button>
 
-              <Link to="/pricing">
-                <Button
-                  variant="outline"
-                  className="
+              <Button
+                asChild
+                variant="outline"
+                className="
                     rounded-full px-8 py-4 text-sm md:text-base
                     bg-white text-slate-700 border border-slate-300
                     shadow-sm
                   "
-                >
+              >
+                <Link to="/pricing">
                   View Pricing Plans
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </Container>

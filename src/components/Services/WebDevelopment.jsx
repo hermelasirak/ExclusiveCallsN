@@ -103,23 +103,23 @@ const WebDevelopment = () => {
 
             {/* ⭐ CHANGE – bullet badges in clean 2-column grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 E-commerce platforms (Shopify, WooCommerce, etc.)
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Mobile-friendly and responsive design
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Custom website design and development
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Ongoing website maintenance and support
               </Badge>
-              <Badge className="flex items-center justify-start gap-2 rounded-full bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
+              <Badge className="flex items-center justify-start gap-2 rounded-2xl whitespace-normal w-full h-auto text-left bg-white text-slate-800 border border-slate-200 px-3 py-2 text-xs md:text-sm col-span-1 sm:col-span-2">
                 <CircleCheck className="w-4 h-4 text-emerald-500" />
                 Website speed optimization and performance testing
               </Badge>
@@ -128,22 +128,23 @@ const WebDevelopment = () => {
             {/* ⭐ CHANGE – CTAs styled like the design, responsive */}
             <div className="flex flex-col sm:flex-row gap-4 rounded-2xl justify-start items-center w-full">
               <div className="text-white">
-                <Link to="/contactus">
-                  <Button className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-400 rounded-full px-8 py-4 text-sm md:text-base font-semibold flex items-center gap-2 shadow-md">
+                  <Link to="/contactus">
                     Get Started
-                    <MoveRight className="w-4 h-4" />
-                  </Button>
-                </Link>
+                    <MoveRight className="w-4 h-4" aria-hidden="true" />
+                  </Link>
+                </Button>
               </div>
               <div className="text-black rounded-2xl">
-                <Link to="/pricing">
-                  <Button
-                    variant="outline"
-                    className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
-                  >
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full px-8 py-4 text-sm md:text-base border-slate-300 text-slate-700 bg-white"
+                >
+                  <Link to="/pricing">
                     View Pricing
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
